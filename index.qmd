@@ -2,8 +2,4 @@
 title: "PolOpt Carbon"
 ---
 
-Hello World!
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+PolOpt Carbon is a Python-based tool that produces carbon tables from GIS data to be used as parameters with InVEST Carbon Storage models.
