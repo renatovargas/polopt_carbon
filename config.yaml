@@ -1,0 +1,25 @@
+project:
+  country: "UGA"
+  overwrite: false
+
+inputs:
+  lulc: "~/testdata/uga/lulc/MCD12Q1.061_LC_Type1_doy2023001_aid0001.tif"
+  carbon_zones: "~/testdata/uga/carbon_zones/carbon_zones.shp"
+  boundary: "~/testdata/uga/boundaries/uga_admbnda_adm0_ubos_20200824.shp"
+  coeff_lookup: "~/testdata/uga/lookup/rg_coefficients_lookup.csv" 
+
+outputs:
+  geopackage: "~/testdata/uga/outputs/UGA_outputs.gpkg"
+  invest_table: "~/testdata/uga/outputs/UGA_invest_carbon_table.csv"
+
+schema:
+  cz_id: "CODE"
+  gez_term: "GEZ_TERM"
+  frontier: "FRONTIER"
+  region: "REGION"
+  carbon_value: "carbon_value"
+
+rules:
+  savanna_percent_of_forest: 0.4
+  wetland_woody_equals_forest: true
+  marsh_equals_shrub: true

@@ -1,0 +1,2 @@
+[console_scripts]
+polopt-carbon = polopt_carbon.cli:main

@@ -1,0 +1,8 @@
+{
+  "country": "UGA",
+  "lulc": "/home/renato/testdata/uga/lulc/MCD12Q1.061_LC_Type1_doy2023001_aid0001.tif",
+  "zones": "/home/renato/testdata/uga/carbon_zones/carbon_zones.shp",
+  "boundary": "/home/renato/testdata/uga/boundaries/uga_admbnda_adm0_ubos_20200824.shp",
+  "records_ct": 266,
+  "invest_rows": 17
+}

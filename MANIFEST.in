@@ -1,0 +1,12 @@
+# Exclude Quarto outputs and heavy assets from the package tarball
+exclude docs/*
+exclude *.qmd
+exclude *.ipynb
+exclude *.tif *.gpkg *.shp *.zip *.csv *.rds *.rdata
+exclude *.png *.jpg *.svg
+recursive-exclude tests *
+recursive-exclude notebooks *
+
+# Include essential metadata
+include README.md
+include LICENSE
