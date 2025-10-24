@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "PolOpt Carbon",
     "section": "",
-    "text": "Hello World!\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "PolOpt Carbon is a Python-based tool that produces carbon tables from GIS data to be used as parameters with InVEST Carbon Storage models."
   },
   {
     "objectID": "about.html",
