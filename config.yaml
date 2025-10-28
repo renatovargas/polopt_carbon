@@ -6,7 +6,7 @@ inputs:
   lulc: "~/testdata/uga/lulc/MCD12Q1.061_LC_Type1_doy2023001_aid0001.tif"
   carbon_zones: "~/testdata/uga/carbon_zones/carbon_zones.shp"
   boundary: "~/testdata/uga/boundaries/uga_admbnda_adm0_ubos_20200824.shp"
-  coeff_lookup: "~/testdata/uga/lookup/rg_coefficients_lookup.csv" 
+  coeff_lookup: "~/testdata/uga/lookup/rg_coefficients_lookup_working.csv" 
 
 outputs:
   geopackage: "~/testdata/uga/outputs/UGA_outputs.gpkg"
