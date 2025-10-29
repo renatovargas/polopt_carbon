@@ -9,8 +9,13 @@ from polopt_carbon.core import compute
 from polopt_carbon.validate import run_validation
 from polopt_carbon.rules import apply_fallback_rules
 
+# ---------------------------------------------------------------------------
+# Typer app (concise banner)
+# ---------------------------------------------------------------------------
 
-app = typer.Typer(help="Compute carbon coefficients from LULC and carbon-zone layers.")
+app = typer.Typer(
+    help="Compute carbon coefficients from LULC and carbon-zone layers for FAO's Policy Optimization Tool (PolOpT)"
+)
 
 # ---------------------------------------------------------------------------
 # Logging setup
@@ -47,43 +52,63 @@ def expand_path(path: Path | None) -> Path | None:
 # ---------------------------------------------------------------------------
 
 
-@app.command()
+@app.command(
+    help=(
+        "Run the full carbon-coefficient pipeline using CLI arguments or a YAML configuration.\n\n"
+        "Configuration fields (config.yaml):\n"
+        "  project.country       ISO3 code for the country\n"
+        "  inputs.lulc           MODIS land-cover raster (1–17 classes)\n"
+        "  inputs.carbon_zones   GEZ/frontier zones shapefile\n"
+        "  inputs.boundary       National boundary shapefile\n"
+        "  inputs.coeff_lookup   Ruesch & Gibbs coefficient table\n"
+        "  outputs.table         Main carbon output table\n"
+        "  outputs.invest_table  InVEST-compatible summary table\n\n"
+        "Methods (--method):\n"
+        "  dominant  → select GEZ/region/frontier combination with most pixels\n"
+        "  weighted  → compute weighted average based on pixel counts\n\n"
+        "Optional expert override (--expert-rules): CSV with [lucode, c_above_override]\n"
+        "Wetland override (--force-wetland-overrides): apply expert rules for wetlands "
+        "even if R&G values exist (forest vs shrub logic by GEZ)."
+    )
+)
 def run(
     country: str = typer.Option(None, help="ISO3 code, overrides config (e.g., UGA)"),
-    lulc: Path = typer.Option(
-        None, exists=False, help="LULC raster (overrides config)"
-    ),
-    carbon_zones: Path = typer.Option(
-        None, exists=False, help="Carbon zones vector file (overrides config)"
-    ),
-    boundary: Path = typer.Option(
-        None, exists=False, help="Country boundary vector file (overrides config)"
-    ),
+    lulc: Path = typer.Option(None, help="LULC raster (overrides config)"),
+    carbon_zones: Path = typer.Option(None, help="Carbon zones vector file"),
+    boundary: Path = typer.Option(None, help="Country boundary vector file"),
     out: Path = typer.Option(None, help="Output table (CSV or Parquet)"),
     out_gpkg: Path = typer.Option(None, help="Optional GeoPackage for map outputs"),
     overwrite: bool = typer.Option(False, help="Overwrite existing outputs"),
     config: Path = typer.Option(
         None, exists=True, help="Path to YAML configuration file"
     ),
+    method: str = typer.Option(
+        "dominant",
+        help="Final coefficient method: 'dominant' (most pixels) or 'weighted' (average by count).",
+        case_sensitive=False,
+    ),
+    expert_rules: Path = typer.Option(
+        None,
+        help="Optional CSV with [lucode, c_above_override] to override final coefficients.",
+    ),
+    force_wetland_overrides: bool = typer.Option(
+        False,
+        "--force-wetland-overrides",
+        help="Force wetland overrides even when R&G values exist (Onil-style GEZ logic).",
+    ),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose logs"),
 ):
-    """
-    Run the full carbon-coefficient pipeline using CLI arguments or a YAML configuration.
-    """
+    """Run the full carbon-coefficient pipeline."""
     setup_logging(verbose)
 
-    # -----------------------------------------------------------------------
-    # Load configuration file (if provided)
-    # -----------------------------------------------------------------------
+    # Load config
     cfg = {}
     if config:
         logging.info(f"Loading configuration from {config}")
         with open(config, "r", encoding="utf-8") as f:
             cfg = yaml.safe_load(f) or {}
 
-    # -----------------------------------------------------------------------
-    # Resolve parameters: CLI options override YAML
-    # -----------------------------------------------------------------------
+    # Resolve parameters
     country = country or cfg.get("project", {}).get("country")
     lulc = lulc or Path(cfg.get("inputs", {}).get("lulc", ""))
     carbon_zones = carbon_zones or Path(cfg.get("inputs", {}).get("carbon_zones", ""))
@@ -94,16 +119,14 @@ def run(
     )
     overwrite = overwrite or cfg.get("project", {}).get("overwrite", False)
     rule_config = cfg.get("rules", {})
+    rule_config["force_wetland_overrides"] = force_wetland_overrides
 
-    # New parameters for coefficient lookup and InVEST table output
     coeff_lookup = Path(cfg.get("inputs", {}).get("coeff_lookup", "")) if cfg else None
     invest_table_out = (
         Path(cfg.get("outputs", {}).get("invest_table", "")) if cfg else None
     )
 
-    # -----------------------------------------------------------------------
-    # Expand ~ and environment variables in all paths
-    # -----------------------------------------------------------------------
+    # Expand paths
     lulc = expand_path(lulc)
     carbon_zones = expand_path(carbon_zones)
     boundary = expand_path(boundary)
@@ -111,28 +134,21 @@ def run(
     out_gpkg = expand_path(out_gpkg)
     coeff_lookup = expand_path(coeff_lookup)
     invest_table_out = expand_path(invest_table_out)
+    expert_rules = expand_path(expert_rules)
 
     logging.info(f"Starting POLoPT Carbon run for {country}")
-    logging.debug(f"LULC raster: {lulc}")
-    logging.debug(f"Carbon zones: {carbon_zones}")
-    logging.debug(f"Boundary: {boundary}")
-    logging.debug(f"Coefficient lookup: {coeff_lookup}")
-    logging.debug(f"InVEST table output: {invest_table_out}")
+    logging.debug(f"Method: {method}")
+    logging.debug(f"Expert rules: {expert_rules}")
+    logging.debug(f"Force wetland overrides: {force_wetland_overrides}")
 
-    # -----------------------------------------------------------------------
-    # Validate inputs first
-    # -----------------------------------------------------------------------
+    # Validate
     validation = run_validation(lulc, carbon_zones, boundary)
     typer.echo(json.dumps(validation, indent=2))
-
-    # Abort if any critical validation failed
     if any("not found" in str(v) for v in validation.values()):
         logging.error("Validation failed — aborting.")
         raise typer.Exit(code=1)
 
-    # -----------------------------------------------------------------------
-    # Execute processing pipeline
-    # -----------------------------------------------------------------------
+    # Run compute
     result = compute(
         country=country,
         lulc=lulc,
@@ -143,11 +159,11 @@ def run(
         overwrite=overwrite,
         coeff_lookup=coeff_lookup,
         invest_table_out=invest_table_out,
+        method=method,
+        expert_rules=expert_rules,
+        force_wetland_overrides=force_wetland_overrides,  # ✅ Now passed correctly
     )
 
-    # -----------------------------------------------------------------------
-    # Final logging and summary
-    # -----------------------------------------------------------------------
     typer.echo(json.dumps(result, indent=2))
     logging.info("Run complete.")
 
@@ -157,7 +173,7 @@ def run(
 # ---------------------------------------------------------------------------
 
 
-@app.command()
+@app.command(help="Validate input files (CRS, projection, required fields).")
 def validate_inputs(
     lulc: Path = typer.Option(..., exists=True, help="Path to LULC raster"),
     carbon_zones: Path = typer.Option(
@@ -166,12 +182,8 @@ def validate_inputs(
     boundary: Path = typer.Option(..., exists=True, help="Path to country boundary"),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
 ):
-    """
-    Validate input files (CRS, projection, required fields).
-    """
     setup_logging(verbose)
     logging.info("Validating inputs...")
-
     results = run_validation(lulc, carbon_zones, boundary)
     typer.echo(json.dumps(results, indent=2))
 

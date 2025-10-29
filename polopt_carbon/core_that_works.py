@@ -3,11 +3,6 @@ core.py
 --------
 Main processing pipeline for computing carbon coefficients from
 Land Use/Land Cover (LULC) rasters and carbon-zone polygons.
-
-Adds:
-- method: "dominant" (selects zone with most pixels) or "weighted" (weighted average)
-- expert_rules: optional CSV of manual coefficient overrides
-- force_wetland_overrides: apply Onil-style wetland logic even if R&G exists
 """
 
 from pathlib import Path
@@ -38,13 +33,10 @@ def compute(
     overwrite: bool = False,
     coeff_lookup: Path | None = None,
     invest_table_out: Path | None = None,
-    method: str = "dominant",
-    expert_rules: Path | None = None,
-    force_wetland_overrides: bool = False,
 ) -> dict:
     """Core processing routine for POLoPT Carbon."""
 
-    logging.info(f"Starting compute() for {country} [method={method}]")
+    logging.info(f"Starting compute() for {country}")
 
     # -----------------------------------------------------------------------
     # 1. Read raster and vector inputs
@@ -157,30 +149,23 @@ def compute(
     # -----------------------------------------------------------------------
     # 8. Fix missing GLC2000 and zero-carbon conditions
     # -----------------------------------------------------------------------
+    # Fill GLC2000 = LULC_CLASS for aesthetics
     df_out["GLC2000"] = df_out["GLC2000"].fillna(df_out["LULC_CLASS"])
 
-    # Ensure Woody Savannas (8) and Savannas (9) copy LULC_CLASS for readability
+    # NEW: Specifically ensure Woody Savannas (8) and Savannas (9)
+    # also copy LULC_CLASS if still NaN (handles partial missing cases)
     mask_savanna = df_out["LULC"].isin([8, 9])
     df_out.loc[mask_savanna, "GLC2000"] = df_out.loc[mask_savanna, "LULC_CLASS"]
 
-    # Force CARBON_VALUE = 0 only for Water GEZ or Urban/Water LULC
-    zero_mask = (df_out["GEZ_TERM"] == "Water") | (df_out["LULC"].isin([13, 17]))
+    # Force CARBON_VALUE = 0 for GEZ_TERM Water and LULC in [8, 9, 13, 17]
+    zero_mask = (df_out["GEZ_TERM"] == "Water") | (df_out["LULC"].isin([8, 9, 13, 17]))
     df_out.loc[zero_mask, "CARBON_VALUE"] = 0
-
-    # Leave 8 & 9 as NaN so fallback_rules() applies the 40% forest rule
 
     # -----------------------------------------------------------------------
     # 9. Apply fallback rules (savanna/wetland, etc.)
     # -----------------------------------------------------------------------
-    rules_cfg = {
-        "savanna_percent_of_forest": 0.4,
-        "wetland_woody_equals_forest": True,
-        "marsh_equals_shrub": True,
-        "force_wetland_overrides": force_wetland_overrides,
-    }
-
     if "CARBON_VALUE" in df_out.columns:
-        df_out = apply_fallback_rules(df_out, config=rules_cfg)
+        df_out = apply_fallback_rules(df_out)
         base_col = (
             "CARBON_VALUE_ADJ"
             if "CARBON_VALUE_ADJ" in df_out.columns
@@ -206,9 +191,11 @@ def compute(
             df_out[group_cols + [base_col]].drop_duplicates(), on=group_cols, how="left"
         )
         df_overlay = df_overlay.rename(columns={base_col: "CARBON_VALUE"})
+
         df_overlay["TOTAL_CARBON"] = (
             df_overlay["Count"] * pixel_area_ha * df_overlay["CARBON_VALUE"]
         )
+
         df_overlay = df_overlay[
             [
                 "LULC",
@@ -222,34 +209,22 @@ def compute(
                 "TOTAL_CARBON",
             ]
         ].sort_values(["LULC", "REGION", "GEZ_TERM", "FRONTIER"])
+
         write_dataframe(df_overlay, overlay_out)
 
     # -----------------------------------------------------------------------
     # 11. Aggregate to per-LULC coefficients (for InVEST)
     # -----------------------------------------------------------------------
     df_out["w"] = df_out["Count"].astype(float)
+    weighted = (
+        df_out.dropna(subset=[base_col])
+        .assign(wcv=lambda d: d["w"] * d[base_col])
+        .groupby("LULC", as_index=False)
+        .agg(total_w=("w", "sum"), total_wcv=("wcv", "sum"))
+    )
+    weighted["c_above"] = weighted["total_wcv"] / weighted["total_w"]
 
-    if method.lower() == "dominant":
-        logging.info("Selecting dominant GEZ/region/frontier per LULC (most pixels)…")
-        idx = df_out.groupby("LULC")["w"].idxmax()
-        invest = df_out.loc[idx, ["LULC", base_col]].rename(
-            columns={base_col: "c_above", "LULC": "lucode"}
-        )
-
-    elif method.lower() == "weighted":
-        logging.info("Computing weighted-average coefficients per LULC…")
-        weighted = (
-            df_out.dropna(subset=[base_col])
-            .assign(wcv=lambda d: d["w"] * d[base_col])
-            .groupby("LULC", as_index=False)
-            .agg(total_w=("w", "sum"), total_wcv=("wcv", "sum"))
-        )
-        weighted["c_above"] = weighted["total_wcv"] / weighted["total_w"]
-        invest = weighted[["LULC", "c_above"]].rename(columns={"LULC": "lucode"})
-
-    else:
-        raise ValueError("Invalid method. Use 'dominant' or 'weighted'.")
-
+    invest = weighted[["LULC", "c_above"]].rename(columns={"LULC": "lucode"})
     full = (
         pd.DataFrame({"lucode": list(range(1, 18))})
         .merge(invest, on="lucode", how="left")
@@ -257,22 +232,7 @@ def compute(
     )
 
     # -----------------------------------------------------------------------
-    # 12. Apply expert overrides (if provided)
-    # -----------------------------------------------------------------------
-    if expert_rules and Path(expert_rules).exists():
-        logging.info(f"Applying expert overrides from {expert_rules}…")
-        expert_df = pd.read_csv(expert_rules)
-        if {"lucode", "c_above_override"}.issubset(expert_df.columns):
-            full = full.merge(expert_df, on="lucode", how="left", suffixes=("", "_exp"))
-            full["c_above"] = full["c_above_override"].combine_first(full["c_above"])
-            full.drop(columns=["c_above_override"], inplace=True)
-        else:
-            logging.warning(
-                "Expert file missing required columns ('lucode', 'c_above_override')."
-            )
-
-    # -----------------------------------------------------------------------
-    # 13. Write outputs
+    # 12. Write outputs
     # -----------------------------------------------------------------------
     if out_gpkg:
         write_geopackage({"carbon_zones_clipped": gdf_zones_clip}, out_gpkg)
@@ -288,9 +248,6 @@ def compute(
             "boundary": str(boundary),
             "records_ct": len(df_out),
             "invest_rows": len(full),
-            "method": method,
-            "expert_rules": str(expert_rules) if expert_rules else None,
-            "force_wetland_overrides": force_wetland_overrides,
         },
         out.parent,
     )
@@ -302,7 +259,4 @@ def compute(
         "out": str(out),
         "out_gpkg": str(out_gpkg) if out_gpkg else None,
         "invest_table": str(invest_table_out) if invest_table_out else None,
-        "method": method,
-        "expert_rules": str(expert_rules) if expert_rules else None,
-        "force_wetland_overrides": force_wetland_overrides,
     }
