@@ -54,21 +54,7 @@ def expand_path(path: Path | None) -> Path | None:
 
 @app.command(
     help=(
-        "Run the full carbon-coefficient pipeline using CLI arguments or a YAML configuration.\n\n"
-        "Configuration fields (config.yaml):\n"
-        "  project.country       ISO3 code for the country\n"
-        "  inputs.lulc           MODIS land-cover raster (1–17 classes)\n"
-        "  inputs.carbon_zones   GEZ/frontier zones shapefile\n"
-        "  inputs.boundary       National boundary shapefile\n"
-        "  inputs.coeff_lookup   Ruesch & Gibbs coefficient table\n"
-        "  outputs.table         Main carbon output table\n"
-        "  outputs.invest_table  InVEST-compatible summary table\n\n"
-        "Methods (--method):\n"
-        "  dominant  → select GEZ/region/frontier combination with most pixels\n"
-        "  weighted  → compute weighted average based on pixel counts\n\n"
-        "Optional expert override (--expert-rules): CSV with [lucode, c_above_override]\n"
-        "Wetland override (--force-wetland-overrides): apply expert rules for wetlands "
-        "even if R&G values exist (forest vs shrub logic by GEZ)."
+        "Run the full carbon-coefficient pipeline using CLI arguments or a YAML configuration."
     )
 )
 def run(
