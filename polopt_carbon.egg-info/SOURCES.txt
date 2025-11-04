@@ -4,6 +4,7 @@ polopt_carbon/__init__.py
 polopt_carbon/cli.py
 polopt_carbon/core.py
 polopt_carbon/core_that_works.py
+polopt_carbon/core_with_comments.py
 polopt_carbon/io.py
 polopt_carbon/rules.py
 polopt_carbon/validate.py
