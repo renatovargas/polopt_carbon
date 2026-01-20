@@ -3,7 +3,7 @@ from pathlib import Path
 
 # Define file paths
 rg_path = Path("~/testdata/uga/lookup/rg_lookup_exploded.csv").expanduser()
-overlay_path = Path("~/testdata/uga/lookup/uga_overlay_counts.csv").expanduser()
+overlay_path = Path("~/testdata/uga/outputs/uga_overlay_counts.csv").expanduser()
 
 # Read files
 rg = pd.read_csv(rg_path)
