@@ -14,3 +14,4 @@ Requires-Dist: pandas>=2.0
 Requires-Dist: pyproj>=3.5
 Requires-Dist: shapely>=2.0
 Requires-Dist: typer[all]>=0.12
+Requires-Dist: pyyaml

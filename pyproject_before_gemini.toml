@@ -18,8 +18,7 @@ dependencies = [
   "pandas>=2.0",
   "pyproj>=3.5",
   "shapely>=2.0",
-  "typer[all]>=0.12",
-  "pyyaml"
+  "typer[all]>=0.12"
 ]
 
 # console entry-point so users get the `polopt-carbon` command
@@ -36,10 +35,6 @@ build-backend = "setuptools.build_meta"
 where = ["."]
 include = ["polopt_carbon*"]
 exclude = ["tests*", "docs*", "notebooks*"]
-
-# --- NEW: Ensure CSV data files are bundled in the package ---
-[tool.setuptools.package-data]
-polopt_carbon = ["data/*.csv"]
 
 # --- Typer pretty errors (optional nicety) ---
 [tool.typer]

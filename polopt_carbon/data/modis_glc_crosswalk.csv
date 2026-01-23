@@ -1,0 +1,18 @@
+LULC,LULC_CLASS,GLC2000 Class
+1,Evergreen needleleaf forests,4 & 5: Needleleaf forest classes
+2,Evergreen broadleaf forests,1  - 3: Broadleaf forest classes
+3,Deciduous needleleaf forests,4 & 5: Needleleaf forest classes
+4,Deciduous broadleaf forests,1  - 3: Broadleaf forest classes
+5,Mixed forests,6 - 8: Mixed forest classes
+6,Closed shrublands,"11, 12, & 15: Shrub cover classes"
+7,Open shrublands,"11, 12, & 15: Shrub cover classes"
+8,Woody savannas,
+9,Savannas,
+10,Grasslands,13: Grassland
+11,Permanent wetlands,14 & 18: Sparse grassland and grassland mosaic classes
+12,Croplands,16: Cultivated and managed land
+13,Urban and built-up lands,"20 - 23: Water, snow and ice, and artificial surfaces"
+14,Cropland/natural vegetation mosaics,17: Forest / cropland mosaic
+15,Snow and ice,"20 - 23: Water, snow and ice, and artificial surfaces"
+16,Barren,19: Bare areas
+17,Water bodies,"20 - 23: Water, snow and ice, and artificial surfaces"

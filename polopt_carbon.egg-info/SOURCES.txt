@@ -2,7 +2,10 @@ MANIFEST.in
 pyproject.toml
 polopt_carbon/__init__.py
 polopt_carbon/cli.py
+polopt_carbon/cli_before_gemini.py
 polopt_carbon/core.py
+polopt_carbon/core_after_gemini.py
+polopt_carbon/core_before_gemini.py
 polopt_carbon/core_that_works.py
 polopt_carbon/core_with_comments.py
 polopt_carbon/io.py
@@ -14,3 +17,6 @@ polopt_carbon.egg-info/dependency_links.txt
 polopt_carbon.egg-info/entry_points.txt
 polopt_carbon.egg-info/requires.txt
 polopt_carbon.egg-info/top_level.txt
+polopt_carbon/data/__init__.py
+polopt_carbon/data/modis_glc_crosswalk.csv
+polopt_carbon/data/rg_lookup_exploded.csv
