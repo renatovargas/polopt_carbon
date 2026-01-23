@@ -59,15 +59,13 @@ def run(
     zones_path = expand(inp.get("carbon_zones"))
     boundary_path = expand(inp.get("boundary"))
 
-    # Optional Data Overrides (None triggers bundled defaults in core.py)
+    # Optional Data Overrides
     coeff_lookup = expand(inp.get("coeff_lookup"))
     crosswalk = expand(inp.get("crosswalk"))
     expert = expand(inp.get("expert_rules"))
 
-    # Outputs
-    out_table = expand(out_cfg.get("table", "out/carbon_table.csv"))
-    out_gpkg = expand(out_cfg.get("geopackage"))
-    invest_out = expand(out_cfg.get("invest_table"))
+    # Outputs - Updated to use hardcoded logic: only needs the folder path
+    output_dir = expand(out_cfg.get("folder", "out"))
 
     # 3. Validation
     logging.info(f"Starting POLoPT Carbon run for {country}")
@@ -77,17 +75,16 @@ def run(
         raise typer.Exit(code=1)
 
     # 4. Execute Core Logic
+    # Updated to pass output_dir instead of specific file paths to match core.py
     result = compute(
         country=country,
         lulc=lulc_path,
         zones=zones_path,
         boundary=boundary_path,
-        out=out_table,
-        out_gpkg=out_gpkg,
+        output_dir=output_dir,
         overwrite=proj.get("overwrite", False),
         coeff_lookup=coeff_lookup,
         crosswalk_path=crosswalk,
-        invest_table_out=invest_out,
         method=method,
         expert_rules=expert,
         force_wetland_overrides=force_wetland_overrides
@@ -109,7 +106,6 @@ def validate(lulc: Path, zones: Path, boundary: Path):
     )
 
 
-# This is the function that Typer uses to launch the app
 def main():
     app()
 
