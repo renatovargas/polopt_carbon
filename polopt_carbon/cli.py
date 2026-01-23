@@ -11,7 +11,6 @@ app = typer.Typer(help="POLoPT Carbon CLI: Compute carbon coefficients and maps.
 
 
 def setup_logging(verbose: bool):
-    """Basic console logging configuration."""
     level = logging.DEBUG if verbose else logging.INFO
     logging.basicConfig(
         level=level,
@@ -21,7 +20,6 @@ def setup_logging(verbose: bool):
 
 
 def expand(path: any) -> Path | None:
-    """Expand user home (~) and resolve paths."""
     if path is None or str(path).strip() == "":
         return None
     return Path(path).expanduser().resolve()
@@ -38,48 +36,37 @@ def run(
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose logs"),
 ):
     setup_logging(verbose)
-
-    # 1. Load configuration from YAML
     cfg = {}
     if config:
-        logging.info(f"Loading config from {config}")
         with open(config, "r", encoding="utf-8") as f:
             cfg = yaml.safe_load(f) or {}
 
-    # 2. Extract and resolve parameters (CLI overrides Config)
     proj = cfg.get("project", {})
     inp = cfg.get("inputs", {})
     out_cfg = cfg.get("outputs", {})
     rules = cfg.get("rules", {})
 
     country = country or proj.get("country", "ISO")
-
-    # Inputs
     lulc_path = expand(inp.get("lulc"))
-    zones_path = expand(inp.get("carbon_zones"))
     boundary_path = expand(inp.get("boundary"))
+    output_dir = expand(out_cfg.get("folder", "out"))
 
-    # Optional Data Overrides
+    # Optional Overrides
     coeff_lookup = expand(inp.get("coeff_lookup"))
     crosswalk = expand(inp.get("crosswalk"))
     expert = expand(inp.get("expert_rules"))
 
-    # Outputs - Updated to use hardcoded logic: only needs the folder path
-    output_dir = expand(out_cfg.get("folder", "out"))
-
-    # 3. Validation
     logging.info(f"Starting POLoPT Carbon run for {country}")
-    v_results = run_validation(lulc_path, zones_path, boundary_path)
-    if any("not found" in str(v).lower() for v in v_results.values()):
+
+    # Internalized GEZ: pass None to validation for the zones parameter
+    v_results = run_validation(lulc_path, None, boundary_path)
+    if any("not found" in str(v).lower() for k, v in v_results.items() if k != "zones"):
         logging.error(f"Validation failed: {json.dumps(v_results, indent=2)}")
         raise typer.Exit(code=1)
 
-    # 4. Execute Core Logic
-    # Updated to pass output_dir instead of specific file paths to match core.py
     result = compute(
         country=country,
         lulc=lulc_path,
-        zones=zones_path,
         boundary=boundary_path,
         output_dir=output_dir,
         overwrite=proj.get("overwrite", False),
@@ -91,19 +78,19 @@ def run(
         or rules.get("force_wetland_overrides", False),
     )
 
-    # 5. Output Summary
     typer.echo(json.dumps(result, indent=2))
-    logging.info("Run complete.")
 
 
-@app.command()
-def validate(lulc: Path, zones: Path, boundary: Path):
-    """Validate input data quality and paths."""
-    typer.echo(
-        json.dumps(
-            run_validation(expand(lulc), expand(zones), expand(boundary)), indent=2
-        )
-    )
+@app.command(help="Validate that the LULC and Boundary layers exist and are readable.")
+def validate(
+    lulc: Path = typer.Argument(..., help="Path to LULC raster"),
+    boundary: Path = typer.Argument(..., help="Path to Boundary shapefile/geopackage"),
+):
+    """Explicitly validate user-supplied layers."""
+    results = run_validation(expand(lulc), None, expand(boundary))
+    # We remove the 'zones' key from the output to avoid confusing the user
+    results.pop("zones", None)
+    typer.echo(json.dumps(results, indent=2))
 
 
 def main():

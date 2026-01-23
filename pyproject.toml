@@ -37,9 +37,9 @@ where = ["."]
 include = ["polopt_carbon*"]
 exclude = ["tests*", "docs*", "notebooks*"]
 
-# --- NEW: Ensure CSV data files are bundled in the package ---
+# --- Ensure CSV data and Geopackage files are bundled in the package ---
 [tool.setuptools.package-data]
-polopt_carbon = ["data/*.csv"]
+polopt_carbon = ["data/*.csv", "data/*.gpkg"]
 
 # --- Typer pretty errors (optional nicety) ---
 [tool.typer]
