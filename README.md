@@ -6,10 +6,10 @@ A command-line tool for computing carbon coefficients and density maps.
 This tool requires geospatial C-libraries (GDAL, PROJ). We strongly recommend using **Micromamba** or **Conda**.
 
 1. **Clone the repository:**
-   ```bash
+
+```bash
    git clone [https://github.com/renatovargas/polopt_carbon.git](https://github.com/renatovargas/polopt_carbon.git)
    cd polopt_carbon
-
 ```
 
 2. **Create the environment:**
@@ -17,14 +17,13 @@ This tool requires geospatial C-libraries (GDAL, PROJ). We strongly recommend us
 ```bash
 micromamba env create -f environment.yml
 micromamba activate polopt-carbon
-
 ```
 
 ## Step 2: Installation
 
 ### Option A: Install from a Release (Fastest)
 
-Go to the [Releases](https://www.google.com/search?q=https://github.com/renatovargas/polopt_carbon/releases) page, download the latest `.whl` file, and run:
+Go to the [Releases](https://github.com/renatovargas/polopt_carbon/releases) page, download the latest `.whl` file, and run:
 
 ```bash
 pip install polopt_carbon-0.1.0-py3-none-any.whl
@@ -44,11 +43,11 @@ pip install -e .
 
 The tool uses a `config.yaml` file to locate your rasters and shapefiles. 
 
-1. 
-**Configure:** Open `config.yaml` and set the paths to your LULC, Carbon Zones, and Boundary files. 
+1. **Configure:** Open `config.yaml` and set the paths to your LULC, Carbon Zones, and Boundary files. 
 
 
 2. **Execute:**
+
 ```bash
 polopt-carbon run --config config.yaml
 
