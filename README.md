@@ -1,8 +1,8 @@
 # POLoPT Carbon CLI
 
-[cite_start]A command-line tool for computing carbon coefficients and density maps. [cite: 1]
+A command-line tool for computing carbon coefficients and density maps.
 
-## 🛠 Step 1: Prepare your Environment
+## Step 1: Prepare your Environment
 This tool requires geospatial C-libraries (GDAL, PROJ). We strongly recommend using **Micromamba** or **Conda**.
 
 1. **Clone the repository:**
@@ -20,7 +20,7 @@ micromamba activate polopt-carbon
 
 ```
 
-## 🚀 Step 2: Installation
+## Step 2: Installation
 
 ### Option A: Install from a Release (Fastest)
 
@@ -40,7 +40,7 @@ pip install -e .
 
 ```
 
-## 📖 Step 3: Running an Analysis
+## Step 3: Running an Analysis
 
 The tool uses a `config.yaml` file to locate your rasters and shapefiles. 
 
