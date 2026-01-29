@@ -19,7 +19,8 @@ dependencies = [
   "pyproj>=3.5",
   "shapely>=2.0",
   "typer[all]>=0.12",
-  "pyyaml"
+  "pyyaml",
+  "openpyxl"
 ]
 
 # console entry-point so users get the `polopt-carbon` command
@@ -43,4 +44,4 @@ polopt_carbon = ["data/*.csv", "data/*.gpkg"]
 
 # --- Typer pretty errors (optional nicety) ---
 [tool.typer]
-pretty_exceptions_enable = true
+pretty_exceptions_enable = false

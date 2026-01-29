@@ -31,6 +31,7 @@ def run(
         None, "--config", "-c", exists=True, help="Path to YAML configuration file"
     ),
     country: str = typer.Option(None, help="ISO3 code (overrides config)"),
+    year: int = typer.Option(None, help="Year of analysis (overrides config)"),
     method: str = typer.Option("dominant", help="Method: 'dominant' or 'weighted'"),
     force_wetland_overrides: bool = typer.Option(False, help="Force wetland GEZ logic"),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose logs"),
@@ -47,6 +48,9 @@ def run(
     rules = cfg.get("rules", {})
 
     country = country or proj.get("country", "ISO")
+    # Priority: CLI arg > Config 'year' > None (Core defaults to current year)
+    year_val = year or proj.get("year")
+
     lulc_path = expand(inp.get("lulc"))
     boundary_path = expand(inp.get("boundary"))
     output_dir = expand(out_cfg.get("folder", "out"))
@@ -56,7 +60,7 @@ def run(
     crosswalk = expand(inp.get("crosswalk"))
     expert = expand(inp.get("expert_rules"))
 
-    logging.info(f"Starting POLoPT Carbon run for {country}")
+    logging.info(f"Starting POLoPT Carbon run for {country} (Year: {year_val})")
 
     # Internalized GEZ: pass None to validation for the zones parameter
     v_results = run_validation(lulc_path, None, boundary_path)
@@ -76,6 +80,7 @@ def run(
         expert_rules=expert,
         force_wetland_overrides=force_wetland_overrides
         or rules.get("force_wetland_overrides", False),
+        year=year_val,
     )
 
     typer.echo(json.dumps(result, indent=2))

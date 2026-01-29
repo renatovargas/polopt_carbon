@@ -7,3 +7,4 @@ pyproj>=3.5
 shapely>=2.0
 typer[all]>=0.12
 pyyaml
+openpyxl

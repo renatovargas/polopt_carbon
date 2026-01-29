@@ -15,6 +15,7 @@ Requires-Dist: pyproj>=3.5
 Requires-Dist: shapely>=2.0
 Requires-Dist: typer[all]>=0.12
 Requires-Dist: pyyaml
+Requires-Dist: openpyxl
 
 # POLoPT Carbon CLI
 
@@ -41,7 +42,7 @@ micromamba activate polopt-carbon
 
 ### Option A: Install from a Release (Fastest)
 
-Go to the [Releases](https://www.google.com/search?q=https://github.com/renatovargas/polopt_carbon/releases) page, download the latest `.whl` file, and run:
+Go to the [Releases](https://github.com/renatovargas/polopt_carbon/releases) page, download the latest `.whl` file, and run:
 
 ```bash
 pip install polopt_carbon-0.1.0-py3-none-any.whl

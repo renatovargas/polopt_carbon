@@ -1,5 +1,6 @@
 from pathlib import Path
 import logging
+from datetime import datetime
 import geopandas as gpd
 import pandas as pd
 import numpy as np
@@ -24,15 +25,27 @@ def compute(
     method: str = "dominant",
     expert_rules: Path | None = None,
     force_wetland_overrides: bool = False,
+    year: int | None = None,
 ) -> dict:
     out_path = Path(output_dir)
     out_path.mkdir(parents=True, exist_ok=True)
 
+    # 1. Add Year Logic
+    if year is None:
+        year = datetime.now().year
+
     iso = country.lower()
-    out_table = out_path / f"{iso}_carbon_table.csv"
-    out_invest = out_path / f"{iso}_invest_carbon_table.csv"
-    out_raster = out_path / f"{iso}_carbon_density.tif"
-    out_gez_gpkg = out_path / f"{iso}_gez.gpkg"
+
+    # 2. Change naming convention to iso_year_output.extension
+    # CHANGED: Output table is now .xlsx
+    out_table = out_path / f"{iso}_{year}_carbon_table.xlsx"
+
+    # CHANGED: Define two output paths for InVEST tables
+    out_invest_dom = out_path / f"{iso}_{year}_invest_carbon_table_dominant.csv"
+    out_invest_wgt = out_path / f"{iso}_{year}_invest_carbon_table_weighted.csv"
+
+    out_raster = out_path / f"{iso}_{year}_carbon_density.tif"
+    out_gez_gpkg = out_path / f"{iso}_{year}_gez.gpkg"
 
     # Internalized GEZ load - sourced from package data folder
     with resources.files("polopt_carbon.data").joinpath("gez.gpkg") as gez_path:
@@ -100,6 +113,11 @@ def compute(
     df_out[base_col] = df_out[base_col].fillna(0.0)
     df_out["TOTAL_CARBON"] = df_out["Count"] * df_out[base_col] * pixel_area_ha
 
+    # 3. Add new fields to the main output table
+    df_out["ISO3"] = iso.upper()
+    df_out["YEAR"] = year
+    df_out["PIXEL_AREA_HA"] = pixel_area_ha
+
     carbon_map_dict = df_out.set_index(["LULC", "CZ_ID"])[base_col].to_dict()
     carbon_arr = np.full(lulc_arr.shape, np.nan, dtype="float32")
     for (l_val, cz_val), c_val in carbon_map_dict.items():
@@ -109,28 +127,80 @@ def compute(
     out_rds.values[0] = carbon_arr
     out_rds.rio.to_raster(out_raster)
 
-    write_dataframe(df_out, out_table)
+    # -----------------------------------------------------------------------
+    # Items 6, 7, 8: Rename, Reorder, and Drop CZ_ID for the Main Table only
+    # We use a copy (df_export) so we don't break the InVEST logic below
+    # which relies on "Count" and base_col names.
+    # -----------------------------------------------------------------------
+    df_export = df_out.copy()
+
+    # 6. Rename columns
+    rename_map = {
+        "Count": "PIXEL_COUNT",
+        base_col: "CARBON_VALUE_USED",
+        "rule_applied": "RULE",
+    }
+    df_export = df_export.rename(columns=rename_map)
+
+    # 7 & 8. Reorder columns (Implicitly drops CZ_ID by not listing it)
+    final_cols = [
+        "ISO3",
+        "YEAR",
+        "LULC",
+        "LULC_CLASS",
+        "REGION",
+        "GEZ_TERM",
+        "FRONTIER",
+        "GLC2000",
+        "CARBON_VALUE",
+        "RULE",
+        "CARBON_VALUE_USED",
+        "PIXEL_COUNT",
+        "PIXEL_AREA_HA",
+        "TOTAL_CARBON",
+    ]
+
+    # Select only the columns that exist (safe-guard) in the desired order
+    df_export = df_export[[c for c in final_cols if c in df_export.columns]]
+
+    # CHANGED: Write to Excel directly (bypassing io.py CSV default)
+    df_export.to_excel(out_table, index=False)
+
     write_geopackage({"carbon_zones": gdf_zones_clip}, out_gez_gpkg)
 
-    # InVEST Table Logic
-    if method == "dominant":
-        invest_agg = df_out.sort_values("Count", ascending=False).drop_duplicates(
-            "LULC"
-        )
-    else:
-        df_out["wt_val"] = df_out[base_col] * df_out["Count"]
-        agg_res = (
-            df_out.groupby("LULC").agg({"wt_val": "sum", "Count": "sum"}).reset_index()
-        )
-        agg_res[base_col] = agg_res["wt_val"] / agg_res["Count"]
-        invest_agg = agg_res[["LULC", base_col]]
+    # -----------------------------------------------------------------------
+    # InVEST Table Logic (Generates BOTH methods regardless of input)
+    # -----------------------------------------------------------------------
+
+    # 1. Dominant Method
+    invest_agg_dom = df_out.sort_values("Count", ascending=False).drop_duplicates(
+        "LULC"
+    )
 
     pd.DataFrame({"lucode": range(1, 18)}).merge(
-        invest_agg[["LULC", base_col]].rename(
+        invest_agg_dom[["LULC", base_col]].rename(
             columns={"LULC": "lucode", base_col: "c_above"}
         ),
         on="lucode",
         how="left",
-    ).fillna(0.0)[["lucode", "c_above"]].to_csv(out_invest, index=False)
+    ).fillna(0.0)[["lucode", "c_above"]].to_csv(out_invest_dom, index=False)
+
+    # 2. Weighted Method
+    # We calculate the weighted mean. Note: this adds 'wt_val' to df_out,
+    # but since this is the final step, modifying df_out is acceptable.
+    df_out["wt_val"] = df_out[base_col] * df_out["Count"]
+    agg_res = (
+        df_out.groupby("LULC").agg({"wt_val": "sum", "Count": "sum"}).reset_index()
+    )
+    agg_res[base_col] = agg_res["wt_val"] / agg_res["Count"]
+    invest_agg_wgt = agg_res[["LULC", base_col]]
+
+    pd.DataFrame({"lucode": range(1, 18)}).merge(
+        invest_agg_wgt[["LULC", base_col]].rename(
+            columns={"LULC": "lucode", base_col: "c_above"}
+        ),
+        on="lucode",
+        how="left",
+    ).fillna(0.0)[["lucode", "c_above"]].to_csv(out_invest_wgt, index=False)
 
     return {"status": "success", "total_carbon_mg": df_out["TOTAL_CARBON"].sum()}
