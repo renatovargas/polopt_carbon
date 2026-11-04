@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – PolOpt Carbon</title>
+<title>Method notes – POLoPT Carbon</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,15 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2871f0bff6da1ee5959dbf0f813d079d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3f84763c4d936fb7d3a98aa829dff287.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,10 +85,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PolOpt Carbon</span>
+    <span class="navbar-title">POLoPT Carbon</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -97,8 +100,15 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link active" href="./method.html" aria-current="page"> 
+<span class="menu-text">Method notes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/renatovargas/polopt_carbon"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -111,15 +121,32 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-values-are-assigned" id="toc-how-values-are-assigned" class="nav-link active" data-scroll-target="#how-values-are-assigned">How values are assigned</a></li>
+  <li><a href="#fallback-rules" id="toc-fallback-rules" class="nav-link" data-scroll-target="#fallback-rules">Fallback rules</a></li>
+  <li><a href="#carbon-table" id="toc-carbon-table" class="nav-link" data-scroll-target="#carbon-table">Carbon table</a></li>
+  <li><a href="#invest-tables" id="toc-invest-tables" class="nav-link" data-scroll-target="#invest-tables">InVEST tables</a></li>
+  <li><a href="#known-limitations" id="toc-known-limitations" class="nav-link" data-scroll-target="#known-limitations">Known limitations</a>
+  <ul class="collapse">
+  <li><a href="#croplands-and-barren-land-receive-0" id="toc-croplands-and-barren-land-receive-0" class="nav-link" data-scroll-target="#croplands-and-barren-land-receive-0">Croplands and barren land receive 0</a></li>
+  <li><a href="#label-typo-in-the-lookup" id="toc-label-typo-in-the-lookup" class="nav-link" data-scroll-target="#label-typo-in-the-lookup">Label typo in the lookup</a></li>
+  <li><a href="#land-in-water-zones" id="toc-land-in-water-zones" class="nav-link" data-scroll-target="#land-in-water-zones">Land in water zones</a></li>
+  <li><a href="#carbon-pools" id="toc-carbon-pools" class="nav-link" data-scroll-target="#carbon-pools">Carbon pools</a></li>
+  </ul></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Method notes</h1>
 </div>
 
 
@@ -136,9 +163,154 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>About this site</p>
+<section id="how-values-are-assigned" class="level2">
+<h2 class="anchored" data-anchor-id="how-values-are-assigned">How values are assigned</h2>
+<ol type="1">
+<li><strong>Reproject.</strong> The land cover raster is reprojected to the equal-area EPSG:6933 with nearest-neighbor resampling, and the output uses the same grid.</li>
+<li><strong>Overlay.</strong> The bundled ecological zones are clipped to the boundary and rasterized, giving each pixel a land cover class and a zone polygon.</li>
+<li><strong>Cross-reference.</strong> A crosswalk links each MODIS/IGBP class to a GLC2000 class.</li>
+<li><strong>Look up.</strong> Each class and zone pair is matched to the Ruesch &amp; Gibbs table by GLC2000 class, region, ecological zone and frontier status.</li>
+<li><strong>Apply fallback rules.</strong> Rules fill the values the lookup can’t provide.</li>
+<li><strong>Assign zero.</strong> Anything still without a value receives 0.</li>
+</ol>
+<p>Every row in the carbon table records how its value was set in <code>VALUE_SOURCE</code>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>lookup</code></td>
+<td>Matched in the lookup table</td>
+</tr>
+<tr class="even">
+<td><code>rule</code></td>
+<td>Set by a fallback rule, named in the <code>RULE</code> column</td>
+</tr>
+<tr class="odd">
+<td><code>global</code></td>
+<td>Taken from a <code>Global</code> row, only with <code>--use-global-classes</code></td>
+</tr>
+<tr class="even">
+<td><code>unmatched</code></td>
+<td>No match or rule, so the value is 0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fallback-rules" class="level2">
+<h2 class="anchored" data-anchor-id="fallback-rules">Fallback rules</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classes</th>
+<th>Value when the lookup has none</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Woody savannas, savannas (8, 9)</td>
+<td>40% of the forest reference value</td>
+<td><code>savanna_percent_of_forest</code></td>
+</tr>
+<tr class="even">
+<td>Permanent wetlands (11)</td>
+<td>The forest reference value</td>
+<td><code>wetland_woody_equals_forest</code></td>
+</tr>
+<tr class="odd">
+<td>Permanent wetlands (11), if no forest reference exists</td>
+<td>The shrub reference value</td>
+<td><code>marsh_equals_shrub</code></td>
+</tr>
+</tbody>
+</table>
+<p>The forest reference is the unweighted mean of the lookup values across the country’s overlay rows for classes 1 to 4. Because there is one row per class and zone polygon, the reference depends on how many polygons the country has and not on the area they cover. The shrub reference works the same way, for classes 6 and 7.</p>
+</section>
+<section id="carbon-table" class="level2">
+<h2 class="anchored" data-anchor-id="carbon-table">Carbon table</h2>
+<p>The carbon table is the main product, because it keeps each zone’s own value. Its <code>Aggregated</code> sheet combines rows from different polygons of the same class and zone, summing pixels and total carbon, and taking the maximum of the carbon values. Rows in a group normally have the same value, and blank values are kept as groups.</p>
+</section>
+<section id="invest-tables" class="level2">
+<h2 class="anchored" data-anchor-id="invest-tables">InVEST tables</h2>
+<p>The InVEST tables are included for completeness. InVEST assigns one value per land cover code, so each class’s zone-specific values have to be reduced to one number. Both versions are always written:</p>
+<ul>
+<li><strong>Dominant</strong> uses the value from the overlay row with the most pixels.</li>
+<li><strong>Weighted</strong> uses the pixel-weighted mean across all the class’s rows.</li>
+</ul>
+<p>An InVEST total built from these tables can therefore differ from the total in the carbon table, which uses the zone-specific values. Codes that don’t appear in the country receive 0.</p>
+</section>
+<section id="known-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="known-limitations">Known limitations</h2>
+<p>These are kept by default so that results reproduce earlier deliveries. <code>polopt-carbon check</code> and <code>run</code> report those that affect your country.</p>
+<section id="croplands-and-barren-land-receive-0" class="level3">
+<h3 class="anchored" data-anchor-id="croplands-and-barren-land-receive-0">Croplands and barren land receive 0</h3>
+<p>The lookup stores croplands (5 t C/ha), barren land (1 t C/ha), and water, snow, ice and artificial surfaces (0 t C/ha) in rows with <code>REGION</code> set to <code>Global</code>. The join uses each pixel’s real region, so these rows never match, and the classes receive 0.</p>
+<p>Code from October 2025 applied these rows through a separate step that was removed in January 2026. Results from before and after that change can therefore differ.</p>
+<p><code>--use-global-classes</code> applies the rows wherever these classes occur, including in <code>Water</code> zones. For Uganda 2023:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Default</th>
+<th>With <code>--use-global-classes</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Croplands</td>
+<td>0 t C</td>
+<td>14.74 Mt C</td>
+</tr>
+<tr class="even">
+<td>Barren land</td>
+<td>0 t C</td>
+<td>0.01 Mt C</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td>1,038.08 Mt C</td>
+<td>1,052.83 Mt C</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="label-typo-in-the-lookup" class="level3">
+<h3 class="anchored" data-anchor-id="label-typo-in-the-lookup">Label typo in the lookup</h3>
+<p>Grassland and permanent wetland rows use <code>Temperate oceanic forests</code>, while the zones use <code>Temperate oceanic forest</code>. Those classes receive 0 in these zones. This doesn’t affect Uganda. <code>--use-global-classes</code> also corrects this label.</p>
+</section>
+<section id="land-in-water-zones" class="level3">
+<h3 class="anchored" data-anchor-id="land-in-water-zones">Land in water zones</h3>
+<p>The zones include <code>Water</code>, <code>No data</code> and <code>None</code>, which have no lookup rows. Most land pixels in these zones, often along shorelines, receive 0. Savannas and wetlands are different, because their fallback rules apply there. Wetlands in <code>Water</code> zones can therefore receive far more carbon than wetlands elsewhere: in Uganda, 117 against 3 to 4 t C/ha.</p>
+</section>
+<section id="carbon-pools" class="level3">
+<h3 class="anchored" data-anchor-id="carbon-pools">Carbon pools</h3>
+<p>Ruesch &amp; Gibbs values combine aboveground and belowground living biomass, and the tool writes the total to <code>c_above</code>. InVEST totals are correct, but the split between pools isn’t available, and soil and dead matter aren’t included.</p>
+<p>The InVEST documentation lists <code>c_below</code>, <code>c_soil</code> and <code>c_dead</code> as required. If your version rejects the two-column table, <code>--invest-all-pools</code> adds them as zeros.</p>
+</section>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<ul>
+<li>Ruesch, A. &amp; Gibbs, H. K. (2008). <em>New IPCC Tier-1 Global Biomass Carbon Map for the Year 2000</em>. Carbon Dioxide Information Analysis Center, Oak Ridge National Laboratory.</li>
+<li><a href="https://storage.googleapis.com/releases.naturalcapitalproject.org/invest-userguide/latest/en/carbonstorage.html">InVEST Carbon Storage documentation</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
