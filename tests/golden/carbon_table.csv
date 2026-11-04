@@ -1,0 +1,344 @@
+ISO3,YEAR,LULC,LULC_CLASS,REGION,GEZ_TERM,FRONTIER,GLC2000,CARBON_VALUE,RULE,CARBON_VALUE_USED,PIXEL_COUNT,PIXEL_AREA_HA,TOTAL_CARBON
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,100,511.1846241380996,3527173.906552887
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical rainforest,0,4 & 5: Needleleaf forest classes,200.0,none,200.0,203,511.1846241380996,20754095.74000684
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,47,511.1846241380996,1657771.736079857
+TST,2023,1,Evergreen needleleaf forests,Africa,Water,0,4 & 5: Needleleaf forest classes,,none,0.0,301,511.1846241380996,0.0
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical dry forest,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,58,511.1846241380996,2134706.990400704
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical dry forest,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,5,511.1846241380996,184026.4646897159
+TST,2023,1,Evergreen needleleaf forests,Africa,Water,0,4 & 5: Needleleaf forest classes,,none,0.0,28,511.1846241380996,0.0
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,4,511.1846241380996,141086.9562621155
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,252,511.1846241380996,8888478.244513275
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,8,511.1846241380996,282173.912524231
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical shrubland,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,83,511.1846241380996,3054839.313849283
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,18,511.1846241380996,634891.3031795197
+TST,2023,1,Evergreen needleleaf forests,Africa,Water,0,4 & 5: Needleleaf forest classes,,none,0.0,52,511.1846241380996,0.0
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,131,511.1846241380996,4620597.817584282
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical rainforest,1,4 & 5: Needleleaf forest classes,200.0,none,200.0,2,511.1846241380996,204473.8496552398
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,1,4 & 5: Needleleaf forest classes,69.0,none,69.0,2,511.1846241380996,70543.47813105774
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical rainforest,0,4 & 5: Needleleaf forest classes,200.0,none,200.0,1347,511.1846241380996,137713137.742804
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical moist deciduous forest,0,4 & 5: Needleleaf forest classes,152.0,none,152.0,886,511.1846241380996,68842255.70192614
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,13,511.1846241380996,458532.6078518754
+TST,2023,1,Evergreen needleleaf forests,Africa,Tropical dry forest,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,16,511.1846241380996,588884.6870070908
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,99,511.1846241380996,3491902.167487358
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical rainforest,0,1  - 3: Broadleaf forest classes,200.0,none,200.0,202,511.1846241380996,20651858.81517923
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,45,511.1846241380996,1587228.257948799
+TST,2023,2,Evergreen broadleaf forests,Africa,Water,0,1  - 3: Broadleaf forest classes,,none,0.0,301,511.1846241380996,0.0
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical dry forest,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,56,511.1846241380996,2061096.404524818
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical dry forest,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,5,511.1846241380996,184026.4646897159
+TST,2023,2,Evergreen broadleaf forests,Africa,Water,0,1  - 3: Broadleaf forest classes,,none,0.0,27,511.1846241380996,0.0
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,4,511.1846241380996,141086.9562621155
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,246,511.1846241380996,8676847.810120102
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,8,511.1846241380996,282173.912524231
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical shrubland,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,87,511.1846241380996,3202060.485601056
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,17,511.1846241380996,599619.5641139909
+TST,2023,2,Evergreen broadleaf forests,Africa,Water,0,1  - 3: Broadleaf forest classes,,none,0.0,51,511.1846241380996,0.0
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,135,511.1846241380996,4761684.773846398
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical rainforest,1,1  - 3: Broadleaf forest classes,200.0,none,200.0,2,511.1846241380996,204473.8496552398
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,1,1  - 3: Broadleaf forest classes,69.0,none,69.0,2,511.1846241380996,70543.47813105774
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical rainforest,0,1  - 3: Broadleaf forest classes,200.0,none,200.0,1339,511.1846241380996,136895242.3441831
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical moist deciduous forest,0,1  - 3: Broadleaf forest classes,152.0,none,152.0,891,511.1846241380996,69230756.0162711
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,14,511.1846241380996,493804.3469174042
+TST,2023,2,Evergreen broadleaf forests,Africa,Tropical dry forest,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,18,511.1846241380996,662495.272882977
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,97,511.1846241380996,3421358.689356301
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical rainforest,0,4 & 5: Needleleaf forest classes,200.0,none,200.0,198,511.1846241380996,20242911.11586874
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,45,511.1846241380996,1587228.257948799
+TST,2023,3,Deciduous needleleaf forests,Africa,Water,0,4 & 5: Needleleaf forest classes,,none,0.0,308,511.1846241380996,0.0
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical dry forest,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,55,511.1846241380996,2024291.111586874
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical dry forest,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,5,511.1846241380996,184026.4646897159
+TST,2023,3,Deciduous needleleaf forests,Africa,Water,0,4 & 5: Needleleaf forest classes,,none,0.0,26,511.1846241380996,0.0
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,6,511.1846241380996,211630.4343931732
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,254,511.1846241380996,8959021.722644333
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,8,511.1846241380996,282173.912524231
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical shrubland,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,83,511.1846241380996,3054839.313849283
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,17,511.1846241380996,599619.5641139909
+TST,2023,3,Deciduous needleleaf forests,Africa,Water,0,4 & 5: Needleleaf forest classes,,none,0.0,50,511.1846241380996,0.0
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,132,511.1846241380996,4655869.556649811
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical rainforest,1,4 & 5: Needleleaf forest classes,200.0,none,200.0,3,511.1846241380996,306710.7744828598
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,1,4 & 5: Needleleaf forest classes,69.0,none,69.0,1,511.1846241380996,35271.73906552887
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical rainforest,0,4 & 5: Needleleaf forest classes,200.0,none,200.0,1342,511.1846241380996,137201953.1186659
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical moist deciduous forest,0,4 & 5: Needleleaf forest classes,152.0,none,152.0,884,511.1846241380996,68686855.57618816
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical mountain system,0,4 & 5: Needleleaf forest classes,69.0,none,69.0,14,511.1846241380996,493804.3469174042
+TST,2023,3,Deciduous needleleaf forests,Africa,Tropical dry forest,0,4 & 5: Needleleaf forest classes,72.0,none,72.0,20,511.1846241380996,736105.8587588634
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,95,511.1846241380996,3350815.211225243
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical rainforest,0,1  - 3: Broadleaf forest classes,200.0,none,200.0,203,511.1846241380996,20754095.74000684
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,48,511.1846241380996,1693043.475145386
+TST,2023,4,Deciduous broadleaf forests,Africa,Water,0,1  - 3: Broadleaf forest classes,,none,0.0,311,511.1846241380996,0.0
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical dry forest,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,52,511.1846241380996,1913875.232773045
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical dry forest,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,5,511.1846241380996,184026.4646897159
+TST,2023,4,Deciduous broadleaf forests,Africa,Water,0,1  - 3: Broadleaf forest classes,,none,0.0,28,511.1846241380996,0.0
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,7,511.1846241380996,246902.1734587021
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,245,511.1846241380996,8641576.071054574
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,8,511.1846241380996,282173.912524231
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical shrubland,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,84,511.1846241380996,3091644.606787226
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,16,511.1846241380996,564347.8250484619
+TST,2023,4,Deciduous broadleaf forests,Africa,Water,0,1  - 3: Broadleaf forest classes,,none,0.0,51,511.1846241380996,0.0
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,134,511.1846241380996,4726413.034780869
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical rainforest,1,1  - 3: Broadleaf forest classes,200.0,none,200.0,4,511.1846241380996,408947.6993104797
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,1,1  - 3: Broadleaf forest classes,69.0,none,69.0,1,511.1846241380996,35271.73906552887
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical rainforest,0,1  - 3: Broadleaf forest classes,200.0,none,200.0,1337,511.1846241380996,136690768.4945278
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical moist deciduous forest,0,1  - 3: Broadleaf forest classes,152.0,none,152.0,892,511.1846241380996,69308456.0791401
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical mountain system,0,1  - 3: Broadleaf forest classes,69.0,none,69.0,14,511.1846241380996,493804.3469174042
+TST,2023,4,Deciduous broadleaf forests,Africa,Tropical dry forest,0,1  - 3: Broadleaf forest classes,72.0,none,72.0,17,511.1846241380996,625689.9799450339
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,96,511.1846241380996,3386086.950290772
+TST,2023,5,Mixed forests,Africa,Tropical rainforest,0,6 - 8: Mixed forest classes,200.0,none,200.0,201,511.1846241380996,20549621.8903516
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,54,511.1846241380996,1904673.909538559
+TST,2023,5,Mixed forests,Africa,Water,0,6 - 8: Mixed forest classes,,none,0.0,309,511.1846241380996,0.0
+TST,2023,5,Mixed forests,Africa,Tropical dry forest,0,6 - 8: Mixed forest classes,72.0,none,72.0,43,511.1846241380996,1582627.596331556
+TST,2023,5,Mixed forests,Africa,Tropical dry forest,0,6 - 8: Mixed forest classes,72.0,none,72.0,5,511.1846241380996,184026.4646897159
+TST,2023,5,Mixed forests,Africa,Water,0,6 - 8: Mixed forest classes,,none,0.0,29,511.1846241380996,0.0
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,9,511.1846241380996,317445.6515897599
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,244,511.1846241380996,8606304.331989044
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,6,511.1846241380996,211630.4343931732
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,1,511.1846241380996,35271.73906552887
+TST,2023,5,Mixed forests,Africa,Tropical shrubland,0,6 - 8: Mixed forest classes,72.0,none,72.0,87,511.1846241380996,3202060.485601056
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,14,511.1846241380996,493804.3469174042
+TST,2023,5,Mixed forests,Africa,Water,0,6 - 8: Mixed forest classes,,none,0.0,63,511.1846241380996,0.0
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,135,511.1846241380996,4761684.773846398
+TST,2023,5,Mixed forests,Africa,Tropical rainforest,1,6 - 8: Mixed forest classes,200.0,none,200.0,4,511.1846241380996,408947.6993104797
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,1,6 - 8: Mixed forest classes,69.0,none,69.0,1,511.1846241380996,35271.73906552887
+TST,2023,5,Mixed forests,Africa,Tropical rainforest,0,6 - 8: Mixed forest classes,200.0,none,200.0,1332,511.1846241380996,136179583.8703897
+TST,2023,5,Mixed forests,Africa,Tropical moist deciduous forest,0,6 - 8: Mixed forest classes,152.0,none,152.0,883,511.1846241380996,68609155.51331918
+TST,2023,5,Mixed forests,Africa,Tropical mountain system,0,6 - 8: Mixed forest classes,69.0,none,69.0,14,511.1846241380996,493804.3469174042
+TST,2023,5,Mixed forests,Africa,Tropical dry forest,0,6 - 8: Mixed forest classes,72.0,none,72.0,17,511.1846241380996,625689.9799450339
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,92,511.1846241380996,2163333.329352438
+TST,2023,6,Closed shrublands,Africa,Tropical rainforest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,206,511.1846241380996,4843985.498332632
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,56,511.1846241380996,1316811.591779744
+TST,2023,6,Closed shrublands,Africa,Water,0,"11, 12, & 15: Shrub cover classes",,none,0.0,305,511.1846241380996,0.0
+TST,2023,6,Closed shrublands,Africa,Tropical dry forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,42,511.1846241380996,987608.6938348084
+TST,2023,6,Closed shrublands,Africa,Tropical dry forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,5,511.1846241380996,117572.4635517629
+TST,2023,6,Closed shrublands,Africa,Water,0,"11, 12, & 15: Shrub cover classes",,none,0.0,28,511.1846241380996,0.0
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,10,511.1846241380996,235144.9271035258
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,239,511.1846241380996,5619963.757774267
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,7,511.1846241380996,164601.4489724681
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,1,511.1846241380996,23514.49271035258
+TST,2023,6,Closed shrublands,Africa,Tropical shrubland,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,86,511.1846241380996,2022246.373090322
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,13,511.1846241380996,305688.4052345835
+TST,2023,6,Closed shrublands,Africa,Water,0,"11, 12, & 15: Shrub cover classes",,none,0.0,74,511.1846241380996,0.0
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,136,511.1846241380996,3197971.008607951
+TST,2023,6,Closed shrublands,Africa,Tropical rainforest,1,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,4,511.1846241380996,94057.97084141032
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,1,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,1,511.1846241380996,23514.49271035258
+TST,2023,6,Closed shrublands,Africa,Tropical rainforest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,1335,511.1846241380996,31391847.76832069
+TST,2023,6,Closed shrublands,Africa,Tropical moist deciduous forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,880,511.1846241380996,20692753.58511027
+TST,2023,6,Closed shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,11,511.1846241380996,258659.4198138784
+TST,2023,6,Closed shrublands,Africa,Tropical dry forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,17,511.1846241380996,399746.3760759939
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,95,511.1846241380996,2233876.807483495
+TST,2023,7,Open shrublands,Africa,Tropical rainforest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,206,511.1846241380996,4843985.498332632
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,53,511.1846241380996,1246268.113648687
+TST,2023,7,Open shrublands,Africa,Water,0,"11, 12, & 15: Shrub cover classes",,none,0.0,306,511.1846241380996,0.0
+TST,2023,7,Open shrublands,Africa,Tropical dry forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,45,511.1846241380996,1058152.171965866
+TST,2023,7,Open shrublands,Africa,Tropical dry forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,3,511.1846241380996,70543.47813105774
+TST,2023,7,Open shrublands,Africa,Water,0,"11, 12, & 15: Shrub cover classes",,none,0.0,26,511.1846241380996,0.0
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,9,511.1846241380996,211630.4343931732
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,239,511.1846241380996,5619963.757774267
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,6,511.1846241380996,141086.9562621155
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,1,511.1846241380996,23514.49271035258
+TST,2023,7,Open shrublands,Africa,Tropical shrubland,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,89,511.1846241380996,2092789.85122138
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,13,511.1846241380996,305688.4052345835
+TST,2023,7,Open shrublands,Africa,Water,0,"11, 12, & 15: Shrub cover classes",,none,0.0,80,511.1846241380996,0.0
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,137,511.1846241380996,3221485.501318304
+TST,2023,7,Open shrublands,Africa,Tropical rainforest,1,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,5,511.1846241380996,117572.4635517629
+TST,2023,7,Open shrublands,Africa,Tropical rainforest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,1335,511.1846241380996,31391847.76832069
+TST,2023,7,Open shrublands,Africa,Tropical moist deciduous forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,868,511.1846241380996,20410579.67258604
+TST,2023,7,Open shrublands,Africa,Tropical mountain system,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,11,511.1846241380996,258659.4198138784
+TST,2023,7,Open shrublands,Africa,Tropical dry forest,0,"11, 12, & 15: Shrub cover classes",46.0,none,46.0,19,511.1846241380996,446775.361496699
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,91,511.1846241380996,1818025.108778774
+TST,2023,8,Woody savannas,Africa,Tropical rainforest,0,,,savanna=40%_forest,39.08235294117647,209,511.1846241380996,4175464.26082158
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,52,511.1846241380996,1038871.490730728
+TST,2023,8,Woody savannas,Africa,Water,0,,,savanna=40%_forest,39.08235294117647,310,511.1846241380996,6193272.348587032
+TST,2023,8,Woody savannas,Africa,Tropical dry forest,0,,,savanna=40%_forest,39.08235294117647,46,511.1846241380996,919001.703338721
+TST,2023,8,Woody savannas,Africa,Tropical dry forest,0,,,savanna=40%_forest,39.08235294117647,5,511.1846241380996,99891.48949333924
+TST,2023,8,Woody savannas,Africa,Water,0,,,savanna=40%_forest,39.08235294117647,26,511.1846241380996,519435.745365364
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,9,511.1846241380996,179804.6810880106
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,234,511.1846241380996,4674921.708288277
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,5,511.1846241380996,99891.48949333924
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,1,511.1846241380996,19978.29789866785
+TST,2023,8,Woody savannas,Africa,Tropical shrubland,0,,,savanna=40%_forest,39.08235294117647,92,511.1846241380996,1838003.406677442
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,12,511.1846241380996,239739.5747840141
+TST,2023,8,Woody savannas,Africa,Water,0,,,savanna=40%_forest,39.08235294117647,82,511.1846241380996,1638220.427690763
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,138,511.1846241380996,2757005.110016163
+TST,2023,8,Woody savannas,Africa,Tropical rainforest,1,,,savanna=40%_forest,39.08235294117647,4,511.1846241380996,79913.19159467139
+TST,2023,8,Woody savannas,Africa,Tropical rainforest,0,,,savanna=40%_forest,39.08235294117647,1337,511.1846241380996,26710984.29051891
+TST,2023,8,Woody savannas,Africa,Tropical moist deciduous forest,0,,,savanna=40%_forest,39.08235294117647,869,511.1846241380996,17361140.87394236
+TST,2023,8,Woody savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,11,511.1846241380996,219761.2768853463
+TST,2023,8,Woody savannas,Africa,Tropical dry forest,0,,,savanna=40%_forest,39.08235294117647,18,511.1846241380996,359609.3621760212
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,87,511.1846241380996,1738111.917184103
+TST,2023,9,Savannas,Africa,Tropical rainforest,0,,,savanna=40%_forest,39.08235294117647,213,511.1846241380996,4255377.452416251
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,51,511.1846241380996,1018893.19283206
+TST,2023,9,Savannas,Africa,Water,0,,,savanna=40%_forest,39.08235294117647,305,511.1846241380996,6093380.859093694
+TST,2023,9,Savannas,Africa,Tropical dry forest,0,,,savanna=40%_forest,39.08235294117647,49,511.1846241380996,978936.5970347245
+TST,2023,9,Savannas,Africa,Tropical dry forest,0,,,savanna=40%_forest,39.08235294117647,6,511.1846241380996,119869.7873920071
+TST,2023,9,Savannas,Africa,Water,0,,,savanna=40%_forest,39.08235294117647,25,511.1846241380996,499457.4474666961
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,9,511.1846241380996,179804.6810880106
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,233,511.1846241380996,4654943.410389609
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,3,511.1846241380996,59934.89369600354
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,1,511.1846241380996,19978.29789866785
+TST,2023,9,Savannas,Africa,Tropical shrubland,0,,,savanna=40%_forest,39.08235294117647,95,511.1846241380996,1897938.300373445
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,11,511.1846241380996,219761.2768853463
+TST,2023,9,Savannas,Africa,Water,0,,,savanna=40%_forest,39.08235294117647,87,511.1846241380996,1738111.917184103
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,139,511.1846241380996,2776983.407914831
+TST,2023,9,Savannas,Africa,Tropical rainforest,1,,,savanna=40%_forest,39.08235294117647,4,511.1846241380996,79913.19159467139
+TST,2023,9,Savannas,Africa,Tropical rainforest,0,,,savanna=40%_forest,39.08235294117647,1348,511.1846241380996,26930745.56740426
+TST,2023,9,Savannas,Africa,Tropical moist deciduous forest,0,,,savanna=40%_forest,39.08235294117647,858,511.1846241380996,17141379.59705701
+TST,2023,9,Savannas,Africa,Tropical mountain system,0,,,savanna=40%_forest,39.08235294117647,12,511.1846241380996,239739.5747840141
+TST,2023,9,Savannas,Africa,Tropical dry forest,0,,,savanna=40%_forest,39.08235294117647,16,511.1846241380996,319652.7663786855
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,89,511.1846241380996,272972.5892897452
+TST,2023,10,Grasslands,Africa,Tropical rainforest,0,13: Grassland,8.0,none,8.0,213,511.1846241380996,871058.5995313217
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,48,511.1846241380996,147221.1717517727
+TST,2023,10,Grasslands,Africa,Water,0,13: Grassland,,none,0.0,302,511.1846241380996,0.0
+TST,2023,10,Grasslands,Africa,Tropical dry forest,0,13: Grassland,4.0,none,4.0,52,511.1846241380996,106326.4018207247
+TST,2023,10,Grasslands,Africa,Tropical dry forest,0,13: Grassland,4.0,none,4.0,6,511.1846241380996,12268.43097931439
+TST,2023,10,Grasslands,Africa,Water,0,13: Grassland,,none,0.0,20,511.1846241380996,0.0
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,9,511.1846241380996,27603.96970345738
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,240,511.1846241380996,736105.8587588634
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,2,511.1846241380996,6134.215489657196
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,1,511.1846241380996,3067.107744828598
+TST,2023,10,Grasslands,Africa,Tropical shrubland,0,13: Grassland,4.0,none,4.0,96,511.1846241380996,196294.8956690303
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,10,511.1846241380996,30671.07744828597
+TST,2023,10,Grasslands,Africa,Water,0,13: Grassland,,none,0.0,87,511.1846241380996,0.0
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,140,511.1846241380996,429395.0842760036
+TST,2023,10,Grasslands,Africa,Tropical rainforest,1,13: Grassland,8.0,none,8.0,5,511.1846241380996,20447.38496552398
+TST,2023,10,Grasslands,Africa,Tropical rainforest,0,13: Grassland,8.0,none,8.0,1340,511.1846241380996,5479899.170760428
+TST,2023,10,Grasslands,Africa,Tropical moist deciduous forest,0,13: Grassland,8.0,none,8.0,857,511.1846241380996,3504681.783090811
+TST,2023,10,Grasslands,Africa,Tropical mountain system,0,13: Grassland,6.0,none,6.0,12,511.1846241380996,36805.29293794317
+TST,2023,10,Grasslands,Africa,Tropical dry forest,0,13: Grassland,4.0,none,4.0,16,511.1846241380996,32715.81594483837
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,88,511.1846241380996,134952.7407724583
+TST,2023,11,Permanent wetlands,Africa,Tropical rainforest,0,14 & 18: Sparse grassland and grassland mosaic classes,4.0,none,4.0,215,511.1846241380996,439618.7767587656
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,48,511.1846241380996,73610.58587588635
+TST,2023,11,Permanent wetlands,Africa,Water,0,14 & 18: Sparse grassland and grassland mosaic classes,,wetland_woody=forest,97.70588235294117,310,511.1846241380996,15483180.87146758
+TST,2023,11,Permanent wetlands,Africa,Tropical dry forest,0,14 & 18: Sparse grassland and grassland mosaic classes,2.0,none,2.0,50,511.1846241380996,51118.46241380996
+TST,2023,11,Permanent wetlands,Africa,Tropical dry forest,0,14 & 18: Sparse grassland and grassland mosaic classes,2.0,none,2.0,8,511.1846241380996,8178.953986209593
+TST,2023,11,Permanent wetlands,Africa,Water,0,14 & 18: Sparse grassland and grassland mosaic classes,,wetland_woody=forest,97.70588235294117,20,511.1846241380996,998914.8949333922
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,8,511.1846241380996,12268.43097931439
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,242,511.1846241380996,371120.0371242603
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,1,511.1846241380996,1533.553872414299
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,1,511.1846241380996,1533.553872414299
+TST,2023,11,Permanent wetlands,Africa,Tropical shrubland,0,14 & 18: Sparse grassland and grassland mosaic classes,2.0,none,2.0,100,511.1846241380996,102236.9248276199
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,11,511.1846241380996,16869.09259655729
+TST,2023,11,Permanent wetlands,Africa,Water,0,14 & 18: Sparse grassland and grassland mosaic classes,,wetland_woody=forest,97.70588235294117,92,511.1846241380996,4595008.516693604
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,140,511.1846241380996,214697.5421380018
+TST,2023,11,Permanent wetlands,Africa,Tropical rainforest,1,14 & 18: Sparse grassland and grassland mosaic classes,4.0,none,4.0,4,511.1846241380996,8178.953986209593
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,1,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,1,511.1846241380996,1533.553872414299
+TST,2023,11,Permanent wetlands,Africa,Tropical rainforest,0,14 & 18: Sparse grassland and grassland mosaic classes,4.0,none,4.0,1342,511.1846241380996,2744039.062373319
+TST,2023,11,Permanent wetlands,Africa,Tropical moist deciduous forest,0,14 & 18: Sparse grassland and grassland mosaic classes,4.0,none,4.0,854,511.1846241380996,1746206.676055748
+TST,2023,11,Permanent wetlands,Africa,Tropical mountain system,0,14 & 18: Sparse grassland and grassland mosaic classes,3.0,none,3.0,11,511.1846241380996,16869.09259655729
+TST,2023,11,Permanent wetlands,Africa,Tropical dry forest,0,14 & 18: Sparse grassland and grassland mosaic classes,2.0,none,2.0,13,511.1846241380996,13290.80022759059
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,82,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical rainforest,0,16: Cultivated and managed land,,none,0.0,218,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,45,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Water,0,16: Cultivated and managed land,,none,0.0,306,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical dry forest,0,16: Cultivated and managed land,,none,0.0,54,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical dry forest,0,16: Cultivated and managed land,,none,0.0,7,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Water,0,16: Cultivated and managed land,,none,0.0,23,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,4,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,245,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,2,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical shrubland,0,16: Cultivated and managed land,,none,0.0,98,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,10,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Water,0,16: Cultivated and managed land,,none,0.0,91,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,138,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical rainforest,1,16: Cultivated and managed land,,none,0.0,6,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,1,16: Cultivated and managed land,,none,0.0,1,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical rainforest,0,16: Cultivated and managed land,,none,0.0,1328,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical moist deciduous forest,0,16: Cultivated and managed land,,none,0.0,866,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical mountain system,0,16: Cultivated and managed land,,none,0.0,13,511.1846241380996,0.0
+TST,2023,12,Croplands,Africa,Tropical dry forest,0,16: Cultivated and managed land,,none,0.0,13,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,83,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical rainforest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,218,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,41,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,306,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,53,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,7,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,21,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,5,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,246,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,3,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical shrubland,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,93,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,14,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,89,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,127,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical rainforest,1,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,6,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,1,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,1,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical rainforest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,1333,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical moist deciduous forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,877,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,13,511.1846241380996,0.0
+TST,2023,13,Urban and built-up lands,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,14,511.1846241380996,0.0
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,86,511.1846241380996,1516684.779817742
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical rainforest,0,17: Forest / cropland mosaic,100.0,none,100.0,222,511.1846241380996,11348298.65586581
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,38,511.1846241380996,670163.0422450486
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Water,0,17: Forest / cropland mosaic,,none,0.0,301,511.1846241380996,0.0
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical dry forest,0,17: Forest / cropland mosaic,36.0,none,36.0,60,511.1846241380996,1104158.788138295
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical dry forest,0,17: Forest / cropland mosaic,36.0,none,36.0,6,511.1846241380996,110415.8788138295
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Water,0,17: Forest / cropland mosaic,,none,0.0,19,511.1846241380996,0.0
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,4,511.1846241380996,70543.47813105774
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,247,511.1846241380996,4356059.774592816
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,4,511.1846241380996,70543.47813105774
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical shrubland,0,17: Forest / cropland mosaic,36.0,none,36.0,92,511.1846241380996,1693043.475145386
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,20,511.1846241380996,352717.3906552887
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Water,0,17: Forest / cropland mosaic,,none,0.0,90,511.1846241380996,0.0
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,120,511.1846241380996,2116304.343931732
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical rainforest,1,17: Forest / cropland mosaic,100.0,none,100.0,6,511.1846241380996,306710.7744828598
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,1,17: Forest / cropland mosaic,34.5,none,34.5,2,511.1846241380996,35271.73906552887
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical rainforest,0,17: Forest / cropland mosaic,100.0,none,100.0,1326,511.1846241380996,67783081.160712
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical moist deciduous forest,0,17: Forest / cropland mosaic,76.0,none,76.0,879,511.1846241380996,34149177.6309216
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical mountain system,0,17: Forest / cropland mosaic,34.5,none,34.5,14,511.1846241380996,246902.1734587021
+TST,2023,14,Cropland/natural vegetation mosaics,Africa,Tropical dry forest,0,17: Forest / cropland mosaic,36.0,none,36.0,14,511.1846241380996,257637.0505656022
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,85,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical rainforest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,218,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,38,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,301,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,61,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,6,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,21,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,4,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,249,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,7,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical shrubland,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,87,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,18,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,90,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,121,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical rainforest,1,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,4,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,1,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,3,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical rainforest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,1320,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical moist deciduous forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,887,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,14,511.1846241380996,0.0
+TST,2023,15,Snow and ice,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,14,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,90,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical rainforest,0,19: Bare areas,,none,0.0,218,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,38,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Water,0,19: Bare areas,,none,0.0,298,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical dry forest,0,19: Bare areas,,none,0.0,59,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical dry forest,0,19: Bare areas,,none,0.0,6,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Water,0,19: Bare areas,,none,0.0,29,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,3,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,250,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,8,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical shrubland,0,19: Bare areas,,none,0.0,85,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,19,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Water,0,19: Bare areas,,none,0.0,66,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,124,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical rainforest,1,19: Bare areas,,none,0.0,3,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,1,19: Bare areas,,none,0.0,1,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical rainforest,0,19: Bare areas,,none,0.0,1330,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical moist deciduous forest,0,19: Bare areas,,none,0.0,896,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical mountain system,0,19: Bare areas,,none,0.0,12,511.1846241380996,0.0
+TST,2023,16,Barren,Africa,Tropical dry forest,0,19: Bare areas,,none,0.0,14,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,94,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical rainforest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,214,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,39,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,295,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,62,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,4,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,29,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,3,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,255,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,8,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical shrubland,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,83,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,18,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Water,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,54,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,127,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical rainforest,1,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,2,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,1,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,2,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical rainforest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,1334,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical moist deciduous forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,891,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical mountain system,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,14,511.1846241380996,0.0
+TST,2023,17,Water bodies,Africa,Tropical dry forest,0,"20 - 23: Water, snow and ice, and artificial surfaces",,none,0.0,14,511.1846241380996,0.0

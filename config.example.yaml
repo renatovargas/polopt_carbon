@@ -1,0 +1,32 @@
+# Example run configuration. Copy it, edit the paths, then run:
+#   polopt-carbon run --config my_country.yaml
+# `polopt-carbon init` writes a file like this for you.
+# Relative paths are resolved from the folder you run the command in.
+
+project:
+  country: UGA
+  year: 2023
+  overwrite: false
+
+inputs:
+  lulc: testdata/uga/lulc/MCD12Q1.061_LC_Type1_doy2023001_aid0001.tif
+  boundary: testdata/uga/boundaries/uga_admbnda_adm0_ubos_20200824.shp
+  # Optional replacements for the bundled tables:
+  # coeff_lookup: my_lookup.csv
+  # crosswalk: my_crosswalk.csv
+
+outputs:
+  folder: out/uga
+
+# These are the defaults; change them only if your method calls for it.
+rules:
+  savanna_percent_of_forest: 0.4
+  wetland_woody_equals_forest: true
+  marsh_equals_shrub: true
+
+options:
+  # Apply the lookup's Global rows and fix its "Temperate oceanic forests"
+  # label. This changes results, so it is off by default. See the method notes.
+  use_global_classes: false
+  # Add zero-filled c_below, c_soil and c_dead columns to the InVEST tables.
+  invest_all_pools: false

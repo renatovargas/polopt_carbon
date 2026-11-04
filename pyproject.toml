@@ -1,47 +1,51 @@
 [project]
 name = "polopt-carbon"
-version = "0.1.0"
-description = "Compute carbon coefficients from LULC and carbon-zone layers."
+version = "1.0.0"
+description = "Prepare carbon density maps and InVEST carbon tables from land cover data."
 readme = "README.md"
-requires-python = ">=3.9"
-license = { text = "MIT" }
-
-authors = [
-  { name = "Renato Vargas" }
-]
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Renato Vargas" }]
 
 dependencies = [
-  "geopandas>=0.14",
-  "rasterio>=1.3",
-  "rioxarray>=0.15",
+  "geopandas>=1.0",
   "numpy>=1.24",
+  "openpyxl>=3.1",
   "pandas>=2.0",
-  "pyproj>=3.5",
+  "pyyaml>=6.0",
+  "rasterio>=1.3",
+  "rich>=13.0",
+  "rioxarray>=0.15",
   "shapely>=2.0",
-  "typer[all]>=0.12",
-  "pyyaml",
-  "openpyxl"
+  "typer>=0.16",
 ]
 
-# console entry-point so users get the `polopt-carbon` command
 [project.scripts]
 polopt-carbon = "polopt_carbon.cli:main"
 
-# --- Build configuration ---
+[project.urls]
+Repository = "https://github.com/renatovargas/polopt_carbon"
+Documentation = "https://renatovargas.github.io/polopt_carbon/"
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
 
-# --- setuptools find rules ---
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["polopt_carbon*"]
-exclude = ["tests*", "docs*", "notebooks*"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/polopt_carbon"]
 
-# --- Ensure CSV data and Geopackage files are bundled in the package ---
-[tool.setuptools.package-data]
-polopt_carbon = ["data/*.csv", "data/*.gpkg"]
+[tool.hatch.build.targets.sdist]
+exclude = ["/docs", "/testdata", "/conda-lock.yml", "/scripts"]
 
-# --- Typer pretty errors (optional nicety) ---
-[tool.typer]
-pretty_exceptions_enable = false
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]
+markers = ["uganda: requires the local testdata/uga folder"]
+
+[tool.ruff]
+line-length = 88
+src = ["src", "tests"]
+extend-exclude = ["scripts", "docs"]

@@ -1,5 +1,48 @@
 ---
-title: "PolOpt Carbon"
+title: "POLoPT Carbon"
 ---
 
-PolOpt Carbon is a Python-based tool that produces carbon tables from GIS data to be used as parameters with InVEST Carbon Storage models.
+POLoPT Carbon is a command-line tool that prepares carbon storage products for the
+FAO PolOpT project. It combines a land cover raster with Ruesch & Gibbs IPCC Tier 1
+biomass carbon values and the FAO Global Ecological Zones, then writes a carbon
+density map, a carbon table, and tables for the InVEST Carbon Storage model.
+
+## Install
+
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run:
+
+```bash
+uv tool install git+https://github.com/renatovargas/polopt_carbon
+```
+
+## Quick start
+
+Check your inputs. This previews the results without writing any files:
+
+```bash
+polopt-carbon check lulc.tif boundary.shp
+```
+
+Then create the products:
+
+```bash
+polopt-carbon run lulc.tif boundary.shp --iso UGA --year 2023 -o out/uga
+```
+
+To keep your settings in a file, run `polopt-carbon init`, and then use
+`polopt-carbon run --config polopt.yaml`.
+
+To see the value each land cover class receives in a carbon zone, run:
+
+```bash
+polopt-carbon coefficients --region Africa --gez "Tropical rainforest"
+```
+
+To check a new run against earlier outputs, run:
+
+```bash
+polopt-carbon compare delivered_outputs new_outputs
+```
+
+Before using the results, read the [method notes](method.qmd), especially the
+section on [known limitations](method.qmd#known-limitations).

@@ -1,0 +1,102 @@
+---
+title: "Method notes"
+---
+
+## How values are assigned
+
+1. **Reproject.** The land cover raster is reprojected to the equal-area EPSG:6933
+   with nearest-neighbor resampling, and the output uses the same grid.
+2. **Overlay.** The bundled ecological zones are clipped to the boundary and
+   rasterized, giving each pixel a land cover class and a zone polygon.
+3. **Cross-reference.** A crosswalk links each MODIS/IGBP class to a GLC2000 class.
+4. **Look up.** Each class and zone pair is matched to the Ruesch & Gibbs table by
+   GLC2000 class, region, ecological zone and frontier status.
+5. **Apply fallback rules.** Rules fill the values the lookup can't provide.
+6. **Assign zero.** Anything still without a value receives 0.
+
+Every row in the carbon table records how its value was set in `VALUE_SOURCE`:
+
+| Value | Meaning |
+|---|---|
+| `lookup` | Matched in the lookup table |
+| `rule` | Set by a fallback rule, named in the `RULE` column |
+| `global` | Taken from a `Global` row, only with `--use-global-classes` |
+| `unmatched` | No match or rule, so the value is 0 |
+
+## Fallback rules
+
+| Classes | Value when the lookup has none | Setting |
+|---|---|---|
+| Woody savannas, savannas (8, 9) | 40% of the forest reference value | `savanna_percent_of_forest` |
+| Permanent wetlands (11) | The forest reference value | `wetland_woody_equals_forest` |
+| Permanent wetlands (11), if no forest reference exists | The shrub reference value | `marsh_equals_shrub` |
+
+The forest reference is the unweighted mean of the lookup values across the
+country's overlay rows for classes 1 to 4. Because there is one row per class and
+zone polygon, the reference depends on how many polygons the country has and not
+on the area they cover. The shrub reference works the same way, for classes 6 and 7.
+
+## InVEST tables
+
+InVEST assigns one value per land cover code, so each class's zone-specific values
+have to be reduced to one number. Both versions are always written:
+
+- **Dominant** uses the value from the overlay row with the most pixels.
+- **Weighted** uses the pixel-weighted mean across all the class's rows.
+
+An InVEST total built from these tables can therefore differ from the total in the
+carbon table, which uses the zone-specific values. Codes that don't appear in the
+country receive 0.
+
+## Known limitations {#known-limitations}
+
+These are kept by default so that results reproduce earlier deliveries. `polopt-carbon
+check` and `run` report those that affect your country.
+
+### Croplands and barren land receive 0
+
+The lookup stores croplands (5 t C/ha), barren land (1 t C/ha), and water, snow, ice
+and artificial surfaces (0 t C/ha) in rows with `REGION` set to `Global`. The join
+uses each pixel's real region, so these rows never match, and the classes receive 0.
+
+Code from October 2025 applied these rows through a separate step that was removed
+in January 2026. Results from before and after that change can therefore differ.
+
+`--use-global-classes` applies the rows wherever these classes occur, including in
+`Water` zones. For Uganda 2023:
+
+| | Default | With `--use-global-classes` |
+|---|---|---|
+| Croplands | 0 t C | 14.74 Mt C |
+| Barren land | 0 t C | 0.01 Mt C |
+| Total | 1,038.08 Mt C | 1,052.83 Mt C |
+
+### Label typo in the lookup
+
+Grassland and permanent wetland rows use `Temperate oceanic forests`, while the zones
+use `Temperate oceanic forest`. Those classes receive 0 in these zones. This doesn't
+affect Uganda. `--use-global-classes` also corrects this label.
+
+### Land in water zones
+
+The zones include `Water`, `No data` and `None`, which have no lookup rows. Most land
+pixels in these zones, often along shorelines, receive 0. Savannas and wetlands are
+different, because their fallback rules apply there. Wetlands in `Water` zones can
+therefore receive far more carbon than wetlands elsewhere: in Uganda, 117 against 3
+to 4 t C/ha.
+
+### Carbon pools
+
+Ruesch & Gibbs values combine aboveground and belowground living biomass, and the
+tool writes the total to `c_above`. InVEST totals are correct, but the split between
+pools isn't available, and soil and dead matter aren't included.
+
+The InVEST documentation lists `c_below`, `c_soil` and `c_dead` as required. If your
+version rejects the two-column table, `--invest-all-pools` adds them as zeros.
+
+## Sources
+
+- Ruesch, A. & Gibbs, H. K. (2008). *New IPCC Tier-1 Global Biomass Carbon Map for
+  the Year 2000*. Carbon Dioxide Information Analysis Center, Oak Ridge National
+  Laboratory.
+- [InVEST Carbon Storage documentation](https://storage.googleapis.com/releases.naturalcapitalproject.org/invest-userguide/latest/en/carbonstorage.html)
