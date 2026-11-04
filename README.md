@@ -4,9 +4,13 @@ A command-line tool that prepares carbon storage products for the FAO PolOpT
 project. It combines a land cover raster with Ruesch & Gibbs IPCC Tier 1 biomass
 carbon values and a bundled copy of the FAO Global Ecological Zones, then writes:
 
+- a carbon table by land cover class and carbon zone, which is the main product
 - a carbon density map
-- a carbon table by land cover class and carbon zone
-- carbon tables and a matching land cover raster for InVEST Carbon Storage
+- tables and a matching land cover raster for InVEST Carbon Storage, included for
+  completeness
+
+The carbon table uses each zone's own value, so it's more detailed than InVEST
+results, which allow only one value per land cover class.
 
 ## Install
 
@@ -73,12 +77,28 @@ Files are named `{iso}_{year}_*`:
 | File | Contents |
 |---|---|
 | `carbon_density.tif` | Carbon density in t C/ha, in EPSG:6933 |
-| `carbon_table.xlsx` | Pixels, values, value source and total carbon by class and zone polygon |
+| `carbon_table.xlsx` | The main product, with an `Aggregated` sheet and a `By polygon` sheet ([details](#carbon-table)) |
 | `invest_carbon_table_dominant.csv` | InVEST table using each class's largest zone polygon |
 | `invest_carbon_table_weighted.csv` | InVEST table using each class's pixel-weighted mean |
 | `lulc_6933.tif` | Land cover on the same grid as the density map, for InVEST |
 | `gez.gpkg` | Ecological zones clipped to the boundary |
 | `manifest.json` | Settings, software versions, warnings and file hashes for the run |
+
+### Carbon table
+
+The file opens on the `Aggregated` sheet. It combines the rows in `By polygon` that
+differ only by zone polygon, grouping by every column except these:
+
+| Column | Combined with |
+|---|---|
+| `PIXEL_COUNT` | Sum |
+| `CARBON_VALUE` | Maximum |
+| `CARBON_VALUE_USED` | Maximum |
+| `TOTAL_CARBON` | Sum |
+
+Blank values are kept as groups, so savannas stay in the table even though they have
+no GLC2000 class. Total carbon is the same on both sheets. `By polygon` remains the
+first sheet, so scripts that read the first sheet get the same rows as before.
 
 ## Things to know about the results
 
@@ -119,7 +139,8 @@ warning. These behaviors did change:
 - The `rules` section of a config file now takes effect. It used to be ignored, so
   check any config that sets non-default values.
 - The density map now declares NaN as nodata, and is compressed.
-- The carbon table has a new final column, `VALUE_SOURCE`.
+- The carbon table has a new final column, `VALUE_SOURCE`, and a new `Aggregated`
+  sheet. The first sheet is now named `By polygon`.
 
 ## Development
 

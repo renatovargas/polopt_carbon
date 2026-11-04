@@ -36,9 +36,16 @@ country's overlay rows for classes 1 to 4. Because there is one row per class an
 zone polygon, the reference depends on how many polygons the country has and not
 on the area they cover. The shrub reference works the same way, for classes 6 and 7.
 
+## Carbon table
+
+The carbon table is the main product, because it keeps each zone's own value. Its
+`Aggregated` sheet combines rows from different polygons of the same class and zone,
+summing pixels and total carbon, and taking the maximum of the carbon values. Rows in
+a group normally have the same value, and blank values are kept as groups.
+
 ## InVEST tables
 
-InVEST assigns one value per land cover code, so each class's zone-specific values
+The InVEST tables are included for completeness. InVEST assigns one value per land cover code, so each class's zone-specific values
 have to be reduced to one number. Both versions are always written:
 
 - **Dominant** uses the value from the overlay row with the most pixels.

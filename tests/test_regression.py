@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import pytest
 import rasterio
+from openpyxl import load_workbook
 
 from polopt_carbon.config import build_config
 from polopt_carbon.pipeline import run
@@ -88,3 +89,18 @@ def test_uganda_matches_delivered_outputs(tmp_path):
     assert result.analysis.total_carbon == pytest.approx(
         delivered["TOTAL_CARBON"].sum(), abs=1e-3
     )
+
+
+def test_aggregated_sheet_preserves_totals(result):
+    workbook = load_workbook(result.outputs["carbon_table"], read_only=True)
+    assert workbook.sheetnames == ["By polygon", "Aggregated"]
+    assert workbook.active.title == "Aggregated"
+    workbook.close()
+
+    detail = pd.read_excel(result.outputs["carbon_table"])
+    merged = pd.read_excel(result.outputs["carbon_table"], sheet_name="Aggregated")
+    assert list(merged.columns) == list(detail.columns)
+    assert len(merged) < len(detail)
+    assert merged["PIXEL_COUNT"].sum() == detail["PIXEL_COUNT"].sum()
+    assert merged["TOTAL_CARBON"].sum() == pytest.approx(detail["TOTAL_CARBON"].sum())
+    assert set(merged["LULC"]) == set(detail["LULC"])

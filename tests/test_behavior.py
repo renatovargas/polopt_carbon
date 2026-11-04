@@ -16,7 +16,7 @@ from polopt_carbon.config import (
     build_config,
 )
 from polopt_carbon.invest import pool_table
-from polopt_carbon.pipeline import analyze, check_inputs, run
+from polopt_carbon.pipeline import aggregate_table, analyze, check_inputs, run
 
 
 def overlay(code, gez="Tropical rainforest", region="Africa", frontier=0):
@@ -166,3 +166,28 @@ def test_coefficients_for_zone():
 def test_unknown_zone_suggests_alternatives():
     with pytest.raises(InputError, match="Did you mean: Tropical rainforest"):
         coefficients_for_zone("Africa", "Tropical rainforrest")
+
+
+def test_aggregate_table_uses_requested_functions_and_keeps_blanks():
+    export = pd.DataFrame(
+        {
+            "LULC": [9, 9, 2, 2],
+            "GLC2000": [None, None, "forest", "forest"],
+            "CARBON_VALUE": [None, None, 200.0, 100.0],
+            "CARBON_VALUE_USED": [40.0, 40.0, 200.0, 100.0],
+            "PIXEL_COUNT": [1, 2, 3, 4],
+            "TOTAL_CARBON": [10.0, 20.0, 30.0, 40.0],
+        }
+    )
+    result = aggregate_table(export).set_index("LULC")
+    assert list(aggregate_table(export).columns) == list(export.columns)
+    assert len(result) == 2
+    assert result.loc[9, "PIXEL_COUNT"] == 3
+    assert result.loc[9, "TOTAL_CARBON"] == 30.0
+    assert result.loc[9, "CARBON_VALUE_USED"] == 40.0
+    assert pd.isna(result.loc[9, "CARBON_VALUE"])
+    assert pd.isna(result.loc[9, "GLC2000"])
+    assert result.loc[2, "CARBON_VALUE"] == 200.0
+    assert result.loc[2, "CARBON_VALUE_USED"] == 200.0
+    assert result.loc[2, "PIXEL_COUNT"] == 7
+    assert result.loc[2, "TOTAL_CARBON"] == 70.0

@@ -56,6 +56,14 @@ TABLE_COLUMNS = {
     "VALUE_SOURCE": "VALUE_SOURCE",
 }
 
+# The remaining columns identify each aggregated row.
+AGGREGATIONS = {
+    "PIXEL_COUNT": "sum",
+    "CARBON_VALUE": "max",
+    "CARBON_VALUE_USED": "max",
+    "TOTAL_CARBON": "sum",
+}
+
 ANALYSIS_STAGES = [
     "Checking inputs",
     "Reprojecting land cover",
@@ -389,6 +397,30 @@ def _write_raster(
         dst.update_tags(software=f"polopt-carbon {__version__}")
 
 
+def aggregate_table(export: pd.DataFrame) -> pd.DataFrame:
+    """Combine the zone polygons that share all other attributes.
+
+    Blank keys must be kept. Savannas have no GLC2000 class, for example, so
+    dropping blanks would remove them and their carbon.
+    """
+    keys = [column for column in export.columns if column not in AGGREGATIONS]
+    grouped = export.groupby(keys, dropna=False, as_index=False).agg(AGGREGATIONS)
+    return grouped[list(export.columns)]
+
+
+def _write_carbon_table(path: Path, export: pd.DataFrame) -> None:
+    """Write both sheets, opening on the aggregated one."""
+    with pd.ExcelWriter(path) as writer:
+        export.to_excel(
+            writer, sheet_name="By polygon", index=False, freeze_panes=(1, 0)
+        )
+        aggregate_table(export).to_excel(
+            writer, sheet_name="Aggregated", index=False, freeze_panes=(1, 0)
+        )
+        writer.book.active = 1
+        writer.sheets["By polygon"].sheet_view.tabSelected = False
+
+
 def run(cfg: RunConfig, on_stage: StageCallback | None = None) -> RunResult:
     """Run the pipeline and write all products."""
     paths = output_paths(cfg)
@@ -417,7 +449,7 @@ def run(cfg: RunConfig, on_stage: StageCallback | None = None) -> RunResult:
 
     stage(WRITE_STAGES[1])
     export = analysis.table.rename(columns=TABLE_COLUMNS)[list(TABLE_COLUMNS.values())]
-    export.to_excel(paths["carbon_table"], index=False, freeze_panes=(1, 0))
+    _write_carbon_table(paths["carbon_table"], export)
     table = analysis.table
     for key, values in (
         ("invest_dominant", dominant_values(table)),
