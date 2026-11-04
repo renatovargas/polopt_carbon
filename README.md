@@ -157,8 +157,8 @@ repository, the tests also compare against delivered Uganda outputs.
 `scripts/process_rg_lookup*.py` are kept as a record of how the lookup table was
 built once. The table isn't meant to be regenerated.
 
-`scripts/polopt_carbon_qgis.py` is the QGIS Processing script. It installs the
-v0.1.0 release and is planned to move to its own repository.
+To run the tool from QGIS, use the
+[POLoPT Carbon plugin](https://github.com/renatovargas/polopt_carbon_qgis).
 
 ## License
 
