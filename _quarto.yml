@@ -2,14 +2,21 @@ project:
   type: website
   output-dir: docs
   execute-dir: project
+  render:
+    - index.qmd
+    - method.qmd
 
 website:
-  title: "PolOpt Carbon"
+  title: "POLoPT Carbon"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: method.qmd
+        text: Method notes
+    right:
+      - icon: github
+        href: https://github.com/renatovargas/polopt_carbon
 
 format:
   html:
@@ -18,6 +25,3 @@ format:
       - custom.scss
     css: styles.css
     toc: true
-
-
-
